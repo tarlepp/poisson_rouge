@@ -8,5 +8,6 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <script src="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl ~ asset('build/app.js', null, true) }}"></script>
     </body>
 </html>
