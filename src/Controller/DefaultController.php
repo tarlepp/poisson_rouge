@@ -4,12 +4,15 @@ namespace App\Controller;
 
 use App\Service\BarService;
 use App\Service\FooService;
+use App\Traits\FooBarServiceTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
+    use FooBarServiceTrait;
+
     /**
      * @var \App\Service\FooService
      */
@@ -33,6 +36,7 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
             'foo' => $this->fooService->foo(),
             'bar' => $barService->bar(),
+            'foobar' => $this->fooBarService->getFooBar(),
         ]);
     }
 }
